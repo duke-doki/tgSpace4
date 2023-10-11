@@ -1,7 +1,7 @@
+from pathlib import Path
+
 import requests
 from environs import Env
-
-from pathlib import Path
 
 from download_image import download_image
 

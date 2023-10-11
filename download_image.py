@@ -1,7 +1,7 @@
-import requests
-
-from urllib.parse import urlsplit
 from os.path import splitext
+from urllib.parse import urlsplit
+
+import requests
 
 
 def download_image(url, directory, params=None):

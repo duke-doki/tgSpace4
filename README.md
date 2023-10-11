@@ -13,7 +13,7 @@ python fetch_nasa_{epic/apod}.py
 ```
 For publishing images in telegram channel use the following command (if frequency is not specified, it will be 4):
 ```
-python main.py -f {frequency in hours}
+python main.py -p {optional: first photo} -f {frequency in hours}
 ```
 
 ### How to install
