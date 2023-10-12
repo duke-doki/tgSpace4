@@ -7,22 +7,23 @@ import telegram
 from environs import Env
 
 
-def publish_directory_photos(directory, frequency, photo):
+def publish_directory_photos(directory, frequency, photo, chat_id):
     while True:
         images = os.listdir(directory)
         random.shuffle(images)
         if photo:
-            bot.send_document(chat_id='@tgspace4',
+            bot.send_document(chat_id=chat_id,
                               document=open(f'{directory}/{photo}', 'rb'))
             sleep(frequency * 60 * 60)
             images.remove(photo)
         for image in images:
-            bot.send_document(chat_id='@tgspace4',
+            bot.send_document(chat_id=chat_id,
                               document=open(f'{directory}/{image}', 'rb'))
             sleep(frequency * 60 * 60)
 
 
 if __name__ == '__main__':
+    chat_id = '@tgspace4'
     env = Env()
     env.read_env()
     tg_token = env.str('TG_TOKEN')
@@ -38,4 +39,4 @@ if __name__ == '__main__':
                         type=int, default=4)
     args = parser.parse_args()
 
-    publish_directory_photos('images', args.frequency, args.photo)
+    publish_directory_photos('images', args.frequency, args.photo, chat_id)
