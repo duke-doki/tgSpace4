@@ -12,13 +12,13 @@ def publish_directory_photos(directory, frequency, photo, chat_id):
         images = os.listdir(directory)
         random.shuffle(images)
         if photo:
-            bot.send_document(chat_id=chat_id,
-                              document=open(f'{directory}/{photo}', 'rb'))
+            with open(f'{directory}/{photo}', 'rb') as file:
+                bot.send_document(chat_id=chat_id, document=file)
             sleep(frequency * 60 * 60)
             images.remove(photo)
         for image in images:
-            bot.send_document(chat_id=chat_id,
-                              document=open(f'{directory}/{image}', 'rb'))
+            with open(f'{directory}/{photo}', 'rb') as file:
+                bot.send_document(chat_id=chat_id, document=file)
             sleep(frequency * 60 * 60)
 
 
