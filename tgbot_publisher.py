@@ -30,7 +30,9 @@ if __name__ == '__main__':
     tg_token = env.str('TG_TOKEN')
     bot = telegram.Bot(token=tg_token)
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description='This program allows to start publishing '
+                    'photos on telegram channel.')
     parser.add_argument('-p', '--photo',
                         help='enter the name of the first photo')
     parser.add_argument('-f', '--frequency',
