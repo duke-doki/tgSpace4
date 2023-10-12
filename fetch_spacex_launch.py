@@ -11,8 +11,8 @@ def fetch_spacex_launch(url):
     response.raise_for_status()
     images = response.json()['links']['flickr']['original']
 
-    for image_number, image in enumerate(images):
-        download_image(image, f'images/spacex{image_number + 1}')
+    for image_number, image in enumerate(images, start=1):
+        download_image(image, f'images/spacex{image_number}')
 
 
 if __name__ == '__main__':

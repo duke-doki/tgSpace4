@@ -12,8 +12,8 @@ def fetch_nasa_apod(token, url):
     response.raise_for_status()
     apods = response.json()
 
-    for apod_number, apod in enumerate(apods):
-        download_image(apod['url'], f'images/nasa_apod{apod_number + 1}')
+    for apod_number, apod in enumerate(apods, start=1):
+        download_image(apod['url'], f'images/nasa_apod{apod_number}')
 
 
 if __name__ == '__main__':

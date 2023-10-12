@@ -14,12 +14,12 @@ def fetch_nasa_epic(token, link):
     response.raise_for_status()
     epics = response.json()
 
-    for epic_number, epic in enumerate(epics):
+    for epic_number, epic in enumerate(epics, start=1):
         date = datetime.fromisoformat(epic['date'])
         converted_date = date.strftime("%Y/%m/%d")
         image = epic['image']
         formated_link = link.format(converted_date, image)
-        download_image(formated_link, f'images/epic{epic_number + 1}', params=params)
+        download_image(formated_link, f'images/epic{epic_number}', params=params)
 
 
 if __name__ == '__main__':
