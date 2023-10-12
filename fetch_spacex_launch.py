@@ -19,12 +19,9 @@ if __name__ == '__main__':
     Path('images').mkdir(exist_ok=True)
     parser = argparse.ArgumentParser(
         description='This program allows to fetch images of SpaceX launch.')
-    parser.add_argument('--id', help='Enter an id of the launch')
+    parser.add_argument('--id', help='Enter an id of the launch',
+                        default='5eb87d47ffd86e000604b38a')
     args = parser.parse_args()
-    if args.id:
-        launch_id = args.id
-    else:
-        launch_id = '5eb87d47ffd86e000604b38a'
 
-    space_x_url = f'https://api.spacexdata.com/v5/launches/{launch_id}'
+    space_x_url = f'https://api.spacexdata.com/v5/launches/{args.id}'
     fetch_spacex_launch(space_x_url)

@@ -8,8 +8,6 @@ from environs import Env
 
 
 def publish_directory_photos(directory, frequency, photo):
-    if not frequency:
-        frequency = 4
     while True:
         images = os.listdir(directory)
         random.shuffle(images)
@@ -37,7 +35,7 @@ if __name__ == '__main__':
                         help='enter the name of the first photo')
     parser.add_argument('-f', '--frequency',
                         help='type how often you want to publish in hours',
-                        type=int)
+                        type=int, default=4)
     args = parser.parse_args()
 
     publish_directory_photos('images', args.frequency, args.photo)
