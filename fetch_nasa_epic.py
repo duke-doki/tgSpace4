@@ -28,5 +28,4 @@ if __name__ == '__main__':
     env = Env()
     env.read_env()
     nasa_token = env.str('NASA_TOKEN')
-    if fetch_file_extension(link):
-        fetch_nasa_epic(nasa_token, link)
+    fetch_nasa_epic(nasa_token, link)

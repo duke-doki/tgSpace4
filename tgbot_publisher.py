@@ -17,13 +17,12 @@ def publish_directory_photos(directory, frequency, photo, chat_id):
             sleep(frequency * 60 * 60)
             images.remove(photo)
         for image in images:
-            with open(f'{directory}/{photo}', 'rb') as file:
+            with open(f'{directory}/{image}', 'rb') as file:
                 bot.send_document(chat_id=chat_id, document=file)
             sleep(frequency * 60 * 60)
 
 
 if __name__ == '__main__':
-    chat_id = '@tgspace4'
     env = Env()
     env.read_env()
     tg_token = env.str('TG_TOKEN')
@@ -37,6 +36,7 @@ if __name__ == '__main__':
     parser.add_argument('-f', '--frequency',
                         help='type how often you want to publish in hours',
                         type=int, default=4)
+    parser.add_argument('chat_id', help="enter your chat ID")
     args = parser.parse_args()
 
-    publish_directory_photos('images', args.frequency, args.photo, chat_id)
+    publish_directory_photos('images', args.frequency, args.photo, args.chat_id)
