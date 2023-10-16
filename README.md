@@ -11,9 +11,10 @@ To download images from NASA use:
 ```
 python fetch_nasa_{epic/apod}.py
 ```
-For publishing images in telegram channel use the following command (if frequency is not specified, it will be 4):
+For publishing images in telegram channel, please, read the description
+using the following command:
 ```
-python main.py -p {optional: first photo} -f {frequency in hours}
+python tgbot_publisher.py -h
 ```
 
 ### How to install
@@ -24,6 +25,10 @@ file which will look like this:
 ```
 NASA_TOKEN={your token}
 TG_TOKEN={your token}
+```
+You also need to create a telegram channel for its chat ID which will look like:
+```
+@{your chat id}
 ```
 
 Python3 should be already installed. 
